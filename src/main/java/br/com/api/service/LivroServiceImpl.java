@@ -44,8 +44,7 @@ public class LivroServiceImpl implements LivroService{
 
 	@Override
 	public Livro salvarLivro(Livro livro) {
-		Livro novolivro = repository.save(livro);
-		return novolivro;
+		 return  repository.save(livro);
 	}
 
 	@Override

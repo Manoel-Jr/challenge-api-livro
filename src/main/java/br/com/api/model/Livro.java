@@ -27,6 +27,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "livros")
+
 public class Livro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -35,12 +36,11 @@ public class Livro implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column
-	private String nomeL;
-	@Column
-	private String nomeA;
-	
+	private String livro;
+	private String autor;
+	private Long paginas;
+	@Column(unique = true)
+	private Long isbn;
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate lancamento;
