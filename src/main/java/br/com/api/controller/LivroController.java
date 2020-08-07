@@ -41,8 +41,14 @@ public class LivroController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(livroSalvo);
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<Livro> buscarLivro(@PathVariable Long id){
+		Livro livro = servico.buscarPorId(id);
+		return ResponseEntity.ok().body(livro);
+	}
 	
-	@DeleteMapping(path = {"/ {id}"})
+	
+	@DeleteMapping(path = {"/{id}"})
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletarLivro(@PathVariable Long id) {
 		servico.deletar(id);
